@@ -1,0 +1,81 @@
+﻿<Window x:Class="Zadanie2_Lista2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Zadanie2_Lista2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="800" Width="1650">
+    <Window.Resources>
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="Width" Value="50"/>
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="10,5,0,2"/>
+        </Style>
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="Margin" Value="10,5,0,2"/>
+        </Style>
+    </Window.Resources>
+    <Grid Background="#FFE0C069">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="75"/>
+            <ColumnDefinition Width="529"/>
+            <ColumnDefinition Width="180"/>
+            <ColumnDefinition Width="139*"/>
+            <ColumnDefinition Width="13*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0" Height="564" VerticalAlignment="Top" MinWidth="100" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="100">
+            <StackPanel.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                    <GradientStop Color="#FFC7AD3A" Offset="1"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+            <TextBlock Text="Sila X" FontSize="30" Height="49" Margin="10,5,0,2" TextWrapping="Wrap"/>
+            <TextBox x:Name="silaX" Width="80" Height="33" BorderBrush="#FF0039E2" Background="#FFF19F5B" FontSize="20" Text="20" TextChanged="TextBox_TextChanged"></TextBox>
+            <TextBlock Text="Siła Y" FontSize="30" Height="55" TextWrapping="Wrap"/>
+            <TextBox x:Name="silaY" Width="80" Height="33" BorderBrush="#FF0039E2" Background="#FFF19F5B" FontSize="20" Text="20" TextChanged="silaY_TextChanged"></TextBox>
+            <TextBlock Text="Punkty" FontSize="30" Height="55" TextWrapping="Wrap"/>
+            <TextBox x:Name="punktacja" Width="80" Height="33" BorderBrush="#FF0039E2" Background="#FFF19F5B" FontSize="20" Text="0" ></TextBox>
+            <Separator Margin="0,15,0,10"/>
+            <Button Click="przyciskStrzalClick" Content="Strzał" Width="80" Height="54" Margin="10,5,0,5" HorizontalAlignment="Left" FontSize="25" Background="#FFDCB050" FontWeight="Medium"/>
+            <Button Click="przyciskZamknijClick" Content="Wyjdz" Width="80" Height="54" Margin="10,180,0,5" FontSize="25" Background="#FFDCB050" FontStyle="Italic" FontWeight="Bold" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+        </StackPanel>
+        <Viewbox Stretch="Fill" Grid.Column="1" Grid.ColumnSpan="4" Margin="4,0,0,10" Width="1553" HorizontalAlignment="Left">
+            <Border Margin="5" BorderBrush="Black" BorderThickness="1" Grid.Column="1" HorizontalAlignment="Left">
+                <Canvas x:Name="myCanvas" Width="287" Height="345" ClipToBounds="True" HorizontalAlignment="Left" Background="#FFDCEDFB">
+                    <Rectangle Width="11" Height="56" Fill="Black" Canvas.Top="214" Canvas.Left="24" StrokeDashArray="3 0" RenderTransformOrigin="0.638,0.502"/>
+                    <Rectangle x:Name="dzialo" Width="14" Height="8" Fill="Black" Canvas.Left="24" Canvas.Top="213" RadiusY="7" RadiusX="7" RenderTransformOrigin="0.5,0.5">
+                        <Rectangle.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="-11.775"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Rectangle.RenderTransform>
+                    </Rectangle>
+                    <Rectangle x:Name="baza" Width="15" Height="6" Fill="Black" Canvas.Left="22" Canvas.Top="264"></Rectangle>
+                    <Rectangle x:Name="wyspa" Width="48" Height="75" Fill="#FFE6E05D" Canvas.Top="270"/>
+                    <Rectangle x:Name="woda" Width="239" Height="70" Fill="#FF3AA2B9" Canvas.Top="275" Canvas.Left="48"/>
+                    <TextBlock x:Name="wiatr" Height="36" Canvas.Left="151" Margin="0" TextWrapping="Wrap" Text="Lekki Wiatr" Canvas.Top="10" Width="126" FontSize="20" FontFamily="Sitka Heading"/>
+                    <Path x:Name="Strzala" Stretch="Fill" Fill="LimeGreen" 
+          Data="M 0,110 70,110 45,90 75,90 120,120 75,150 45,150 70,130 0,130 Z"
+          HorizontalAlignment="Right"  Width="30" Height="24"
+          RenderTransformOrigin="0.404,0.352" Canvas.Left="179.35" Canvas.Top="42.656">
+                        <Path.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="180"/>
+                                <TranslateTransform X="5.76" Y="7.104"/>
+                            </TransformGroup>
+                        </Path.RenderTransform>
+                    </Path>
+                </Canvas>
+            </Border>
+        </Viewbox>
+    </Grid>
+</Window>
